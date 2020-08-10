@@ -1,12 +1,40 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import "../../../../src/Styles/common.scss";
 import "./Login.scss";
 
+
 class Login extends Component {
+    constructor() {
+        super();
+        this.state = {
+            userID : "",
+            userPassword: ""
+        }
+    }
+
+    idChangeHandler = e => {
+        this.setState({
+            userID: e.target.value
+        })
+    }
+
+    passwordChangeHandler = e => {
+        this.setState({
+            userPassword: e.target.value
+        })
+    }
+
     goToMain =() => {
         this.props.history.push('/sangkuohMain');
     }
+
+    pressEnter = e => {
+        if(e.key === "Enter") {
+            this.goToMain();
+        }
+    }
+    
     render() {
         return (
             <div className="Login">
@@ -21,13 +49,16 @@ class Login extends Component {
                         <div className="loginFormWrap">
                         <div className="loginForm">
                             <div className="loginFormInput" id="inputFormTop">
-                            <input className="inputText inputId" type="text" placeholder="전화번호, 사용자 이름 또는 이메일"></input>
+                            <input className="inputText inputId" onChange={this.idChangeHandler} type="text" placeholder="전화번호, 사용자 이름 또는 이메일" />
                             </div>
                             <div className="loginFormInput">
-                            <input className="inputText inputPw" type="password" placeholder="비밀번호"></input>
+                            <input className="inputText inputPw" onChange={this.passwordChangeHandler} onKeyPress={this.pressEnter} type="password" placeholder="비밀번호" />
                             </div>
-                            <button className="loginBoxBtn"
-                                    onClick={this.goToMain}>로그인</button>
+                            <button className={`btn ${this.state.userID.includes("@") && this.state.userPassword.length >= 5 ? "active" : "off"}`}
+                                disabled={this.state.userID.includes("@") && this.state.userPassword.length >= 5 ? false : true}
+                                onClick={this.goToMain}>
+                                    로그인
+                            </button>
                             <div className="loginBoxOr">
                             <div className="loginBoxOrLine"></div>
                             <div className="loginBoxOrText">또는</div>
@@ -37,13 +68,13 @@ class Login extends Component {
                             <span className="fbIcon"></span>
                             <span className="fbText">Facebook으로 로그인</span>
                             </button>
-                            <a href="https://www.instagram.com/?hl=ko" className="loginBoxPw">비밀번호를 잊으셨나요?</a>
+                            <a href="https://www.instagram.com/accounts/password/reset/" className="loginBoxPw">비밀번호를 잊으셨나요?</a>
                         </div>
                         </div>
                     </div>
                     <div className="signUp loginBorder">
                         <p>계정이 없으신가요?</p>
-                        <Link to="/">가입하기</Link>
+                        <a href="https://www.instagram.com/">가입하기</a>
                     </div>
                     <div className="appContainer">
                         <p>앱을 다운로드하세요.</p>
