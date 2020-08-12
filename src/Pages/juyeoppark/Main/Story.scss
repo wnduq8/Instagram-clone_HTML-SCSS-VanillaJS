@@ -1,0 +1,90 @@
+.Story {
+  .main_right {
+    position: sticky;
+    top: 120px;
+    .main_right-article {
+      margin-left: 30px;
+      .main_right-header {
+        display: flex;
+        align-items: center;
+        .right_header-img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+        .right_header-imguser {
+          margin-left: 20px;
+          .imguser_name {
+            font-weight: bold;
+            font-size: 18px;
+          }
+          .imguser_bottom {
+            font-size: 8px;
+            color: rgb(173, 173, 173);
+            .imguser_bottom-subcoment {
+              border-right: 1px solid rgb(173, 173, 173);
+              padding-right: 2px;
+            }
+            & > span:last-child {
+              padding-left: 2px;
+            }
+          }
+        }
+      }
+      .main_right-main {
+        width: 320px;
+        height: 240px;
+        overflow-y: scroll;
+        .right_main-top {
+          display: flex;
+          justify-content: space-between;
+          margin: 15px 0;
+          .rigth_main-top-story {
+            width: 245.5px;
+            height: 30px;
+            color: rgb(173, 173, 173);
+            font-weight: bold;
+            font-size: 18px;
+          }
+          .rigth_main-top-all {
+            font-size: 12px;
+          }
+        }
+        .right_main-story {
+          .story_list-item {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+            .story_img {
+              img {
+                width: 32px;
+                height: 32px;
+                margin-right: 20px;
+                border-radius: 50%;
+              }
+            }
+            .stoty_comment {
+              .story_comment-text {
+                font-size: 16px;
+                font-weight: bold;
+              }
+              .story_time {
+                font-size: 12px;
+                color: rgb(160, 159, 159);
+              }
+            }
+          }
+        }
+      }
+      .main_rigth-footer {
+        width: 320px;
+        margin-top: 20px;
+        font-size: 13px;
+        color: rgba(173, 173, 173, 0.8);
+        .right_footer-from {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
