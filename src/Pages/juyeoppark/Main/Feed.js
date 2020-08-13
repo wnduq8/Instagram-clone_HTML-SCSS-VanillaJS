@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import Story from "./Story";
+import Reply from "./Component/Reply";
 import "./Feed.scss";
 
 class Feed extends Component {
   constructor() {
     super();
-
     this.state = {
-      disabled: true,
       text: "",
       newText: [],
       userId: "juyeoppark",
@@ -22,22 +21,19 @@ class Feed extends Component {
 
   addText = () => {
     const { userId, text, newText } = this.state;
+    if (text === "") {
+      return;
+    }
     this.setState({
       newText: newText.concat({ userId, text }),
       text: "",
     });
   };
 
-  enterText = (e) => {
-    if (e.key === "Enter") {
-      this.addText();
-    }
-  };
-
   render() {
     return (
       <div className="Feed">
-        <main id="main">
+        <main className="main">
           <div className="main_feeds">
             <div className="feeds_article">
               <div className="article_header">
@@ -45,11 +41,11 @@ class Feed extends Component {
                   alt="wecode"
                   src="https://avatars1.githubusercontent.com/u/52394741?s=200&v=4"
                 />
-                <div className="article_header-text">
-                  <span className="header_text-comment">wecode_bootcamp</span>
+                <div className="article_header_text">
+                  <span className="header_text_comment">wecode_bootcamp</span>
                   <span>WeCode - 위코드</span>
                 </div>
-                <div className="article_header-rigth">
+                <div className="article_header_rigth">
                   <img
                     alt="more image"
                     src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/more.png"
@@ -79,14 +75,14 @@ class Feed extends Component {
                     src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/share.png"
                   />
                 </div>
-                <div className="feeds_icon-right">
+                <div className="feeds_icon_right">
                   <img
                     alt="save"
                     src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/bookmark.png"
                   />
                 </div>
               </div>
-              <div className="feeds_like-comment">
+              <div className="feeds_like_comment">
                 <img alt="profile image" src="images/juyeoppark/jyp1.jpeg" />
                 <span>juyeoppark_ju님 외 4명이 좋아합니다</span>
               </div>
@@ -101,17 +97,8 @@ class Feed extends Component {
                 </p>
                 <button className="comment_more">더보기</button>
               </div>
-              {this.state.newText.map((e, idx) => {
-                if (e.text === "") {
-                  return;
-                } else {
-                  return (
-                    <div key={idx} className="comment_add">
-                      <span className="addTextId">{e.userId}</span>
-                      <div className="addTextComment">{e.text}</div>
-                    </div>
-                  );
-                }
+              {this.state.newText.map(({ userId, text }, idx) => {
+                return <Reply key={idx} userId={userId} text={text} />;
               })}
               <span className="Time_comment">54분전</span>
               <form className="feeds_comment">
@@ -121,16 +108,13 @@ class Feed extends Component {
                   placeholder="댓글달기..."
                   value={this.state.text}
                   onChange={this.textValue}
-                  onKeyPress={this.enterText}
                 />
                 <button
                   onClick={this.addText}
                   className="submit submit_btn"
                   disabled={this.state.text.length ? false : true}
                 >
-                  <span className="submit_text" onClick={this.add}>
-                    게시
-                  </span>
+                  <span className="submit_text">게시</span>
                 </button>
               </form>
             </div>

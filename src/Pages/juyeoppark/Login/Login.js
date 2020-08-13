@@ -6,9 +6,7 @@ import { withRouter } from "react-router-dom";
 class Login extends Component {
   constructor() {
     super();
-
     this.state = {
-      disabled: true,
       idValue: "",
       pwValue: "",
     };
@@ -59,7 +57,6 @@ class Login extends Component {
                   name="idValue"
                   value={this.state.idValue}
                   onChange={this.inputValue}
-                  onKeyPress={this.btnActive}
                 />
                 <input
                   className="login_input-pw"
@@ -68,7 +65,6 @@ class Login extends Component {
                   name="pwValue"
                   value={this.state.pwValue}
                   onChange={this.inputValue}
-                  onKeyPress={this.btnActive}
                 />
               </form>
               <button

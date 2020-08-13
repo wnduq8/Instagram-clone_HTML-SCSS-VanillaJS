@@ -33,7 +33,7 @@
 
 $subTextColor: rgb(173, 173, 173);
 
-#main {
+.main {
   display: flex;
   width: 935px;
   margin: 54px auto;
@@ -49,7 +49,7 @@ $subTextColor: rgb(173, 173, 173);
           @include storyImgBorder;
           margin: 0 10px;
         }
-        .article_header-text {
+        .article_header_text {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -81,11 +81,11 @@ $subTextColor: rgb(173, 173, 173);
             margin-right: 10px;
           }
         }
-        .feeds_icon-right img {
+        .feeds_icon_right img {
           @include iconimg;
         }
       }
-      .feeds_like-comment {
+      .feeds_like_comment {
         display: flex;
         align-items: center;
         width: 584px;

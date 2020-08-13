@@ -2,17 +2,18 @@
   .main_right {
     position: sticky;
     top: 120px;
-    .main_right-article {
+    .main_right_article {
       margin-left: 30px;
-      .main_right-header {
+      .main_right_header {
         display: flex;
         align-items: center;
-        .right_header-img {
+        margin-bottom: 20px;
+        .right_header_img {
           width: 50px;
           height: 50px;
           border-radius: 50%;
         }
-        .right_header-imguser {
+        .right_header_imguser {
           margin-left: 20px;
           .imguser_name {
             font-weight: bold;
@@ -21,7 +22,7 @@
           .imguser_bottom {
             font-size: 8px;
             color: rgb(173, 173, 173);
-            .imguser_bottom-subcoment {
+            .imguser_bottom_subcoment {
               border-right: 1px solid rgb(173, 173, 173);
               padding-right: 2px;
             }
@@ -31,27 +32,28 @@
           }
         }
       }
-      .main_right-main {
+      .main_right_main {
         width: 320px;
         height: 240px;
         overflow-y: scroll;
-        .right_main-top {
+        .right_main_top {
           display: flex;
           justify-content: space-between;
           margin: 15px 0;
-          .rigth_main-top-story {
+          .rigth_main_top_story {
             width: 245.5px;
             height: 30px;
             color: rgb(173, 173, 173);
             font-weight: bold;
             font-size: 18px;
           }
-          .rigth_main-top-all {
+          .rigth_main_top_all {
             font-size: 12px;
+            font-weight: bold;
           }
         }
-        .right_main-story {
-          .story_list-item {
+        .right_main_story {
+          .story_list_item {
             display: flex;
             align-items: center;
             padding: 5px 0;
@@ -64,7 +66,7 @@
               }
             }
             .stoty_comment {
-              .story_comment-text {
+              .story_comment_text {
                 font-size: 16px;
                 font-weight: bold;
               }
@@ -76,12 +78,12 @@
           }
         }
       }
-      .main_rigth-footer {
+      .main_rigth_footer {
         width: 320px;
         margin-top: 20px;
         font-size: 13px;
         color: rgba(173, 173, 173, 0.8);
-        .right_footer-from {
+        .right_footer_from {
           margin-top: 20px;
         }
       }
