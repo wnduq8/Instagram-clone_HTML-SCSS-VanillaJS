@@ -21,7 +21,7 @@ class Feed extends Component {
 
   addText = () => {
     const { userId, text, newText } = this.state;
-    if (text === "") {
+    if (!text) {
       return;
     }
     this.setState({
